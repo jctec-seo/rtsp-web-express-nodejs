@@ -43,7 +43,6 @@
           // `data.buffer` is the raw video data from FFMPEG
           // pretend you are getting data as follows
           // var data = {buffer:ArrayBuffer}
-    //      //if(data.feed==watchCH)
              player.write(data.buffer);
       });
 
@@ -56,7 +55,6 @@
     });
     function watch(btn,ch)
     {
-        console.log(ch);
         $('button').removeClass('active');
         if(watchCH!=0)
             socket.emit('leave',watchCH);
