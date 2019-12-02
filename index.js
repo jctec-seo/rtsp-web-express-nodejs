@@ -25,13 +25,10 @@ io.on('connection', function (socket) {
 function ensureStreamOpen(feed)
 {
     const ch=parseInt(feed);
-    const rtspLocation=rtspMan.getLocation(ch);
-    const pa=['-rtsp_transport', 'tcp',
-     '-i', 'rtsp://' +rtspLocation,
-     '-f', 'mpegts', '-codec:v', 'mpeg1video',
-     '-an', 'http://localhost' + port + '/streamIn/'+ feed];
+    const param=rtspMan.getParam(ch);
+    const args=param + ' http://localhost' + port + '/streamIn/'+ feed;
     
-    const mpeg=child.spawn('ffmpeg', pa);
+    const mpeg=child.spawn('ffmpeg', args.split(' '));
     mpeg.on('close', function (buffer) {
         for(var i=0;i<childs.length;i++)
             if(childs[i]==this.pid){
