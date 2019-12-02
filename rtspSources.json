@@ -1,7 +1,7 @@
 [
-    {"name":"rource 1", "location":"wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"},
-    {"name":"rource 2", "location":"170.93.143.139/rtplive/470011e600ef003a004ee33696235daa"},
-    {"name":"rource 3", "location":"wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"},
-    {"name":"rource 4", "location":"wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"},
-    {"name":"rource 5", "location":"wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"}
+    {"name":"rource 1", "param":"-rtsp_transport tcp -i rtsp:wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov -f mpegts -codec:v mpeg1video -an"},
+    {"name":"rource 2", "param":"-rtsp_transport tcp -i rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa -f mpegts -codec:v mpeg2video -an"},
+    {"name":"rource 3", "param":"-rtsp_transport tcp -i rtsp:wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov -f mpegts -codec:v mpeg1video -an"},
+    {"name":"rource 4", "param":"-rtsp_transport tcp -i rtsp:wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov -f mpegts -codec:v mpeg1video -an"},
+    {"name":"rource 5", "param":"-rtsp_transport tcp -i rtsp:wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov -f mpegts -codec:v mpeg1video -an"}
 ]
