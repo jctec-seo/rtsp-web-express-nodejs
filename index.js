@@ -1,22 +1,18 @@
 const {app, server, io}=require('./lib/init');
 const rtspMan=require('./lib/rtsp-manager');
-const express = require('express');
 const child = require('child_process');
-const spawn = child.spawn;
 
 const PORT = process.env.PORT || 8001
 const port=PORT==80 ? '': ':'+ PORT;
 
 const childs= new Array(10);
 app.use('/streamIn', require('./routers/streamIn'))
-app.use(['/h264','/h264/:feed'], require('./routers/h264'))
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 })
 io.on('connection', function (socket) {
     socket.on('getStream',function (feed) {
-        //console.log(feed);
         const room='STREAM_'+ feed;
         if(childs[feed]===undefined)
             ensureStreamOpen(feed);
